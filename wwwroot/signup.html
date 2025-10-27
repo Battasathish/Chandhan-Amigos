@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/signup.css" />
+</head>
+<body>
+    <main class="container">
+        <section class="auth-card">
+            <h1>Create your account</h1>
+            <p class="subtext">Join us in less than a minute.</p>
+
+            <!-- IMPORTANT: matches AccountController.Login (POST) -->
+            <form action="/Account/Signup" method="post" class="form">
+
+                <!-- Full Name -->
+                <div class="field">
+                    <label for="FullName">Full name</label>
+                    <input id="FullName" name="FullName" type="text" placeholder="Your Name"
+                           autocomplete="name" required minlength="2" />
+                    <small class="hint">Use your real name.</small>
+                </div>
+
+                <!-- Email -->
+                <div class="field">
+                    <label for="Email">Email</label>
+                    <input id="Email" name="Email" type="email" placeholder="you@example.com"
+                           autocomplete="email" required />
+                    <small class="hint">We’ll never share your email.</small>
+                </div>
+
+                <!-- Phone -->
+                <div class="field">
+                    <label for="PhoneNumber">Phone</label>
+                    <input id="PhoneNumber" name="PhoneNumber" type="tel" placeholder="XXXXXXXXXX"
+                           pattern="^[0-9]{10}$" inputmode="numeric"
+                           title="Enter a 10-digit number with digits only" />
+                </div>
+
+                <!-- Username -->
+                <div class="field">
+                    <label for="Username">Username</label>
+                    <input id="Username" name="Username" type="text" placeholder="Name"
+                           autocomplete="username" required minlength="3" maxlength="20"
+                           pattern="^[a-zA-Z0-9_\.]{3,20}$"
+                           title="3–20 characters; letters, numbers, underscore or dot" />
+                </div>
+
+                <!-- Password -->
+                <div class="field">
+                    <label for="Password">Password</label>
+                    <input id="Password" name="Password" type="password" placeholder="••••••••"
+                           autocomplete="new-password" required minlength="8"
+                           pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+                           title="At least 8 characters with letters and numbers" />
+                    <small class="hint">Min 8 chars, must include letters & numbers.</small>
+                </div>
+
+                <!-- Confirm Password (visual only) -->
+                <div class="field">
+                    <label for="Confirm">Confirm password</label>
+                    <input id="Confirm" name="Confirm" type="password" placeholder="••••••••"
+                           autocomplete="new-password" required minlength="8" />
+                    <small class="hint">Make sure it matches the password above.</small>
+                </div>
+
+                <!-- Terms -->
+                <div class="field inline">
+                    <input id="terms" name="terms" type="checkbox" required />
+                    <label for="terms">I agree to the <a href="#">Terms</a> & <a href="#">Privacy</a></label>
+                </div>
+
+                <!-- Submit -->
+                <button class="btn" type="submit">Create account</button>
+
+                <p class="alt">
+                    Already have an account?
+                    <a href="login.html">Log in</a>
+                </p>
+            </form>
+        </section>
+    </main>
+    <script src="signupscript.js"></script>
+</body>
+</html>
